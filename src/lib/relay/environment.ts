@@ -4,7 +4,7 @@ import { Environment, RecordSource, Store } from 'relay-runtime';
 import createNetworkLayer from './network.ts';
 import { isBrowser } from '@/lib/consts.ts';
 
-// List of Reset Listener to call when the environment is reset
+// List of Reset Listeners to call when the environment is reset
 let _resetListeners: Array<(notify: boolean) => void> = [];
 
 export type CreateRelayContextArguments = {
@@ -77,7 +77,7 @@ export function resetRelayEnvironment(
     { notify }: { notify: boolean } = { notify: true },
 ) {
     // Reset the Relay Environment
-    // Fire off all the callbacks register for when the environment is reset
+    // Fire off all the callbacks registered for when the environment is reset
     _resetListeners.forEach((listener) => listener(notify));
 }
 
